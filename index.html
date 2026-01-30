@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>病毒消灭游戏 - 广告收益模拟</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>病毒消灭游戏</h1>
+            <div class="subtitle">点击病毒消灭它们！使用技能和观看广告获取奖励</div>
+        </div>
+        
+        <div class="game-area">
+            <div class="stats-row">
+                <div class="stat-box">
+                    <div class="stat-value" id="score">72</div>
+                    <div class="stat-label">当前分数</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="viruses">93</div>
+                    <div class="stat-label">剩余病毒</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="coins">150</div>
+                    <div class="stat-label">游戏金币</div>
+                </div>
+            </div>
+            
+            <div class="game-canvas-container">
+                <canvas id="gameCanvas"></canvas>
+            </div>
+            
+            <div class="controls">
+                <button class="ability-btn" id="invincibilityBtn">
+                    <div>6秒无敌</div>
+                    <div style="font-size:12px;">消耗: 50金币</div>
+                </button>
+                <button class="ability-btn" id="reviveBtn">
+                    <div>复活继续</div>
+                    <div style="font-size:12px;">需要观看广告</div>
+                </button>
+            </div>
+            
+            <div class="ad-section">
+                <div class="ad-title">广告收益系统</div>
+                <div class="ad-buttons">
+                    <button class="ad-btn" id="interstitialAdBtn">观看插屏广告 (+30金币)</button>
+                    <button class="ad-btn" id="videoAdBtn">观看全屏视频广告 (+100金币)</button>
+                </div>
+                
+                <div class="ad-rewards">
+                    <div class="reward-item">
+                        <div class="reward-value" id="adCount">0</div>
+                        <div class="reward-label">已观看广告</div>
+                    </div>
+                    <div class="reward-item">
+                        <div class="reward-value" id="totalAdReward">0</div>
+                        <div class="reward-label">广告总收益</div>
+                    </div>
+                    <div class="reward-item">
+                        <div class="reward-value" id="totalEarnings">0</div>
+                        <div class="reward-label">游戏总收益</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="instructions">
+                <strong>游戏说明：</strong> 点击画布中的病毒消灭它们，每消灭一个病毒得1分并减少1个剩余病毒。使用金币激活6秒无敌技能，或观看广告复活。观看广告可以获得金币奖励，用于购买游戏内技能。
+            </div>
+        </div>
+        
+        <div class="footer">
+            病毒消灭游戏 - 广告收益模拟 | 适用于VS Code运行 | 纯文字版本
+        </div>
+    </div>
+    
+    <!-- 广告模态框 -->
+    <div class="ad-modal" id="adModal">
+        <div class="ad-content">
+            <div class="ad-header" id="adTitle">插屏广告</div>
+            <div class="ad-body">
+                <div class="ad-message" id="adMessage">广告正在播放中，请稍候...</div>
+                <div class="ad-timer" id="adTimer">5</div>
+                <div class="ad-message">观看完整广告可获得奖励</div>
+                <button class="ad-close" id="adCloseBtn" disabled>关闭广告 (5)</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
